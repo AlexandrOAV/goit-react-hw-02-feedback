@@ -9,16 +9,20 @@ export class App extends Component {
   state = {
   good: 0,
   neutral: 0,
-  bad: 0
-};
+    bad: 0,
+  };
+  
+
   addByClick = option =>
-    this.setState((prevState) => (
-      { [option]: prevState[option] + 1 }));
+    this.setState(
+      (prevState) => ({ [option]: prevState[option] + 1 })
+    );
   
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state
     return  (good + neutral + bad);
   }
+
   countPositiveFeedbackPercentage = () => {
     const { good } = this.state;
     const total = this.countTotalFeedback();
@@ -32,7 +36,7 @@ export class App extends Component {
     return (
       <main className={css.container}>
         <Section title= 'Please leave feedback' >
-          <FeedbackOptions onLeaveFeedback={this.addByClick} options={ ['good', 'neutral', 'bad']}/>
+          <FeedbackOptions onLeaveFeedback={this.addByClick} options={Object.keys(this.state)}/>
         </Section>
         <Section title='Statistics'>
           {total > 0 ? (<Statistics

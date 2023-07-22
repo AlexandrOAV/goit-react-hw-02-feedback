@@ -1,5 +1,7 @@
 import css from './Statistics.module.css'
 import PropTypes from 'prop-types';
+
+
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
     return ( 
         <section>
@@ -12,6 +14,8 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
             </ul>
         </section>);
 };
+
+
 Statistics.propTypes = {
 good: PropTypes.number.isRequired,
 bad: PropTypes.number.isRequired,
